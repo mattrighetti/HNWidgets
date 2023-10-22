@@ -28,6 +28,7 @@
 		5F7FDDB72AE4700F005C6C24 /* HNWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDDB62AE4700F005C6C24 /* HNWidgetEntryView.swift */; };
 		5F9641792AE565EB009D247D /* WidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9641782AE565EB009D247D /* WidgetConfigurationIntent.swift */; };
 		5FBC1A652AE55F01009DAA73 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */; };
+		5FCC18452AE57A9E000E3BC9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC18442AE57A9E000E3BC9 /* InfoView.swift */; };
 		5FFCBF1A2AE480D3001994DA /* HNLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCBF192AE480D3001994DA /* HNLinkRow.swift */; };
 		5FFCBF1B2AE48334001994DA /* HNLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCBF192AE480D3001994DA /* HNLinkRow.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		5F7FDDB62AE4700F005C6C24 /* HNWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNWidgetEntryView.swift; sourceTree = "<group>"; };
 		5F9641782AE565EB009D247D /* WidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationIntent.swift; sourceTree = "<group>"; };
 		5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		5FCC18442AE57A9E000E3BC9 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		5FFCBF192AE480D3001994DA /* HNLinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLinkRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,13 +137,14 @@
 		5F7FDD572AE468CC005C6C24 /* HNWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				5FFCBF192AE480D3001994DA /* HNLinkRow.swift */,
+				5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */,
+				5FCC18442AE57A9E000E3BC9 /* InfoView.swift */,
 				5F4053682AE4779700B46E36 /* Info.plist */,
 				5F7FDD582AE468CC005C6C24 /* HNWidgetsApp.swift */,
 				5F7FDD5C2AE468CD005C6C24 /* Assets.xcassets */,
 				5F7FDD5E2AE468CD005C6C24 /* HNWidgets.entitlements */,
 				5F7FDD5F2AE468CD005C6C24 /* Preview Content */,
-				5FFCBF192AE480D3001994DA /* HNLinkRow.swift */,
-				5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */,
 			);
 			path = HNWidgets;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				5F4053622AE476EB00B46E36 /* HNPageFetcher.swift in Sources */,
 				5F7FDD592AE468CC005C6C24 /* HNWidgetsApp.swift in Sources */,
 				5F4053642AE476EB00B46E36 /* HTMLParser.swift in Sources */,
+				5FCC18452AE57A9E000E3BC9 /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
