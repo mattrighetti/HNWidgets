@@ -12,6 +12,7 @@ struct HNWidgetsApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreen()
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -30,6 +30,7 @@ struct SplashScreen: View {
             }
             .ignoresSafeArea()
 
+
             .toolbar {
                 ToolbarItem(id: "settings", placement: .topBarTrailing) {
                     Button(action: {
@@ -40,6 +41,7 @@ struct SplashScreen: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showInfo, content: {
             InfoView()
         })
