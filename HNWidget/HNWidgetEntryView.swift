@@ -11,6 +11,8 @@ import WidgetKit
 struct HNWidgetEntryView : View {
     @Environment(\.widgetFamily) var widgetFamily
 
+    var entry: SimpleEntry
+
     var limit: Int {
         switch widgetFamily {
         case .systemSmall:
@@ -35,36 +37,38 @@ struct HNWidgetEntryView : View {
         }
     }
 
-    var entry: SimpleEntry
-
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .center) {
-                Text("Hacker News")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(.orange)
-                    .padding(.top, spacing.0)
-                    .padding(.bottom, spacing.1)
-
-                Text(entry.list)
-                    .font(.system(size: 13, weight: .thin))
-                    .padding(.top, spacing.0)
-                    .padding(.bottom, spacing.1)
-            }
-
+        if entry.showError {
+            Text("Error fetching data")
+        } else {
             VStack(alignment: .leading) {
-                if entry.links.count >= limit {
-                    ForEach(entry.links[0..<limit]) { link in
-                        Link(destination: URL(string: "hnwidgets://openlink?link=\(link.url)")!, label: {
-                            HNLinkRow(link: link)
-                                .padding(.bottom, spacing.2)
-                        })
-                    }
-                } else {
-                    Text("No data")
+                HStack(alignment: .center) {
+                    Text("Hacker News")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.orange)
+                        .padding(.top, spacing.0)
+                        .padding(.bottom, spacing.1)
+
+                    Text(entry.list)
+                        .font(.system(size: 13, weight: .thin))
+                        .padding(.top, spacing.0)
+                        .padding(.bottom, spacing.1)
                 }
-            }
-        }.padding(0)
+
+                VStack(alignment: .leading) {
+                    if entry.links.count >= limit {
+                        ForEach(entry.links[0..<limit]) { link in
+                            Link(destination: URL(string: "hnwidgets://openlink?link=\(link.url)")!, label: {
+                                HNLinkRow(link: link)
+                                    .padding(.bottom, spacing.2)
+                            })
+                        }
+                    } else {
+                        Text("No data")
+                    }
+                }
+            }.padding(0)
+        }
     }
 }
 

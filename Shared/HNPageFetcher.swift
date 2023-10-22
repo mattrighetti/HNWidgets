@@ -70,18 +70,21 @@ struct HNPageFetcher {
         return data
     }
 
-    public func getHNLinks(from list: HNList? = .home) async throws -> Result<[HNLink], ParserError> {
-        let data = try await getArticles(from: list)
+    public func getHNLinks(from list: HNList? = .home) async -> Result<[HNLink], Error> {
+        guard let data = try? await getArticles(from: list) else {
+            return .failure(FetchError.failure)
+        }
 
-        guard let htmlString = String(data: data, encoding: .utf8),
-              let parser = HTMLParser(html: htmlString)
-        else { return .failure(.htmlParseError) }
+        guard
+            let htmlString = String(data: data, encoding: .utf8),
+            let parser = HTMLParser(html: htmlString)
+        else { return .failure(ParserError.htmlParseError) }
 
         let links = parser.getHNLinks()
         if links.count > 0 {
             return .success(links)
         }
         
-        return .failure(.unknown)
+        return .failure(ParserError.unknown)
     }
 }
