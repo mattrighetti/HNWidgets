@@ -26,7 +26,9 @@ struct HNPageFetcher {
             var urlComponents = URLComponents()
             urlComponents.scheme = "https"
             urlComponents.host = "news.ycombinator.com"
-            urlComponents.path = self.rawValue
+            if self != .home {
+                urlComponents.path = "/" + self.rawValue
+            }
             return urlComponents.url!
         }
     }
