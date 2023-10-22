@@ -16,7 +16,6 @@
 		5F40536A2AE4779C00B46E36 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 5F4053692AE4779C00B46E36 /* Kanna */; };
 		5F40536C2AE477BD00B46E36 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 5F40536B2AE477BD00B46E36 /* Kanna */; };
 		5F7FDD592AE468CC005C6C24 /* HNWidgetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDD582AE468CC005C6C24 /* HNWidgetsApp.swift */; };
-		5F7FDD5B2AE468CC005C6C24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDD5A2AE468CC005C6C24 /* ContentView.swift */; };
 		5F7FDD5D2AE468CD005C6C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7FDD5C2AE468CD005C6C24 /* Assets.xcassets */; };
 		5F7FDD612AE468CD005C6C24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7FDD602AE468CD005C6C24 /* Preview Assets.xcassets */; };
 		5F7FDDA22AE46E3C005C6C24 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7FDD6D2AE469AE005C6C24 /* WidgetKit.framework */; };
@@ -27,6 +26,7 @@
 		5F7FDDAE2AE46E3D005C6C24 /* HNWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F7FDDA12AE46E3C005C6C24 /* HNWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F7FDDB32AE46FD2005C6C24 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDDB22AE46FD2005C6C24 /* Provider.swift */; };
 		5F7FDDB72AE4700F005C6C24 /* HNWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDDB62AE4700F005C6C24 /* HNWidgetEntryView.swift */; };
+		5FBC1A652AE55F01009DAA73 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */; };
 		5FFCBF1A2AE480D3001994DA /* HNLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCBF192AE480D3001994DA /* HNLinkRow.swift */; };
 		5FFCBF1B2AE48334001994DA /* HNLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCBF192AE480D3001994DA /* HNLinkRow.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,6 @@
 		5F4053682AE4779700B46E36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5F7FDD552AE468CC005C6C24 /* HNWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7FDD582AE468CC005C6C24 /* HNWidgetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNWidgetsApp.swift; sourceTree = "<group>"; };
-		5F7FDD5A2AE468CC005C6C24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F7FDD5C2AE468CD005C6C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F7FDD5E2AE468CD005C6C24 /* HNWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HNWidgets.entitlements; sourceTree = "<group>"; };
 		5F7FDD602AE468CD005C6C24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		5F7FDDAB2AE46E3D005C6C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F7FDDB22AE46FD2005C6C24 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5F7FDDB62AE4700F005C6C24 /* HNWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNWidgetEntryView.swift; sourceTree = "<group>"; };
+		5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		5FFCBF192AE480D3001994DA /* HNLinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLinkRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,11 +135,11 @@
 			children = (
 				5F4053682AE4779700B46E36 /* Info.plist */,
 				5F7FDD582AE468CC005C6C24 /* HNWidgetsApp.swift */,
-				5F7FDD5A2AE468CC005C6C24 /* ContentView.swift */,
 				5F7FDD5C2AE468CD005C6C24 /* Assets.xcassets */,
 				5F7FDD5E2AE468CD005C6C24 /* HNWidgets.entitlements */,
 				5F7FDD5F2AE468CD005C6C24 /* Preview Content */,
 				5FFCBF192AE480D3001994DA /* HNLinkRow.swift */,
+				5FBC1A642AE55F01009DAA73 /* SplashScreen.swift */,
 			);
 			path = HNWidgets;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFCBF1A2AE480D3001994DA /* HNLinkRow.swift in Sources */,
-				5F7FDD5B2AE468CC005C6C24 /* ContentView.swift in Sources */,
+				5FBC1A652AE55F01009DAA73 /* SplashScreen.swift in Sources */,
 				5F4053602AE476EB00B46E36 /* HNLink.swift in Sources */,
 				5F4053622AE476EB00B46E36 /* HNPageFetcher.swift in Sources */,
 				5F7FDD592AE468CC005C6C24 /* HNWidgetsApp.swift in Sources */,
@@ -371,7 +371,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -426,7 +428,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -439,6 +443,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HNWidgets/HNWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -467,7 +472,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,6 +486,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HNWidgets/HNWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -508,7 +515,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,6 +547,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -569,6 +581,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
