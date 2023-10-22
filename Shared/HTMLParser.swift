@@ -26,8 +26,9 @@ public class HTMLParser {
         else { return [] }
 
         var data = [Datum]()
-        for (t, s) in zip(titles, sub) {
-            data.append(Datum.Athing(id: t["id"]!, innerHtml: t, sub: s))
+        for (elem, sub) in zip(titles, sub) {
+            guard let id = elem["id"] else { continue }
+            data.append(Datum.Athing(id: id, innerHtml: elem, sub: sub))
         }
 
         return data
@@ -35,16 +36,18 @@ public class HTMLParser {
 
     private func getHNLink(_ obj: Datum) -> HNLink? {
         if case .Athing(let id, let innerHtml, let sub) = obj {
-            print(id)
-            let header = innerHtml.xpath("//td[@class='title']//a[1]").first!
-            let title = header.text
-            let url = header["href"]
+            guard
+                let header = innerHtml.xpath("//td[@class='title']//a[1]").first,
+                let title = header.text,
+                let url = header["href"]
+            else { return nil }
 
             let username = sub.xpath("//a[@class='hnuser']").first?.text
-            let age = sub.xpath("//span[@class='age']//a").first!.text
-            let score = sub.xpath("//span[@class='score']").first?.text!.trimmingCharacters(in: .letters).trimmingCharacters(in: .whitespaces)
-            let comments = sub.xpath("//a[contains(text(), 'comments')]").first?.text!.trimmingCharacters(in: .letters).trimmingCharacters(in: .whitespaces)
-            return HNLink(id: Int(id)!, title: title!, url: url!, username: username ?? "", comments: comments != nil ? Int(comments!)! : 0, upvotes: score != nil ? Int(score!)! : 0, elapsed: age!)
+            let age = sub.xpath("//span[@class='age']//a").first?.text
+            let score = sub.xpath("//span[@class='score']").first?.text?.leaveNumbers
+            let comments = sub.xpath("//a[contains(text(), 'comments')]").first?.text?.leaveNumbers
+
+            return HNLink(id: id, title: title, url: url, username: username, comments: comments, upvotes: score, elapsed: age)
         }
 
         return nil
@@ -55,5 +58,11 @@ public class HTMLParser {
             .compactMap { x in
                 getHNLink(x)
             }
+    }
+}
+
+extension String {
+    var leaveNumbers: String {
+        self.trimmingCharacters(in: .letters).trimmingCharacters(in: .whitespaces)
     }
 }

@@ -8,11 +8,11 @@
 import Foundation
 
 public struct HNLink: Identifiable, Hashable, Equatable {
-    public let id: Int
+    public let id: String
     public let title: String
     public let url: String
-    public let username: String
-    public let comments: Int
-    public let upvotes: Int
-    public let elapsed: String
+    public let username: String?
+    public let comments: String?
+    public let upvotes: String?
+    public let elapsed: String?
 }
