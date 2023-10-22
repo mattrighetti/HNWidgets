@@ -17,18 +17,39 @@ enum ParserError: Error {
 }
 
 struct HNPageFetcher {
-    enum HNList: String {
-        case home, best, shownew, asknew,
-             launches, whoishiring, pool, invited,
-             highlights, active, noobstories, classic, leaders
+    enum HNList: String, CaseIterable {
+        case home
+        case best
+        case shownew
+        case asknew
+        case launches
+        case whoishiring
+        case pool
+        case invited
+        case active
+        case noobstories
+        case classic
+
+        static var allCases: [HNPageFetcher.HNList] = [
+            .active, .asknew, .best, .classic, .home,
+            .invited, .launches, .noobstories, .pool,
+            .shownew, .whoishiring
+        ]
 
         var url: URL {
             var urlComponents = URLComponents()
             urlComponents.scheme = "https"
             urlComponents.host = "news.ycombinator.com"
-            if self != .home {
+            
+            switch self {
+            case .home: break
+            case .whoishiring:
+                urlComponents.path = "/submitted"
+                urlComponents.query = "id=" + self.rawValue
+            default:
                 urlComponents.path = "/" + self.rawValue
             }
+
             return urlComponents.url!
         }
     }

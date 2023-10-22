@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @Environment(\.openURL) var openURL
     var body: some View {
         ZStack {
             Color(red: 22/255, green: 22/255, blue: 22/255)
@@ -25,6 +26,15 @@ struct SplashScreen: View {
             }
         }
         .ignoresSafeArea()
+        .onOpenURL(perform: { url in
+            guard let urlComponents = URLComponents(string: url.absoluteString) else { return }
+            guard
+                url.scheme == "hnwidgets",
+                url.host == "openlink",
+                let link = urlComponents.queryItems?.first(where: { $0.name == "link" })?.value
+            else { return }
+            openURL(URL(string: link)!)
+        })
     }
 }
 

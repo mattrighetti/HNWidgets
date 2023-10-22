@@ -12,7 +12,7 @@ struct HNWidget: Widget {
     let kind: String = "HNWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 HNWidgetEntryView(entry: entry)
                     .containerBackground(.fill.quinary, for: .widget)
@@ -46,5 +46,5 @@ struct HNWidget: Widget {
         HNLink(id: "37967126", title: "What Every Developer Should Know About GPU Computing", url: "https://codeconfessions.substack.com/p/gpu-computing", username: "Anon84", comments: "15", upvotes: "80", elapsed: "1 hour ago"),
         HNLink(id: "37967751", title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", username: "laurex", comments: "3", upvotes: "11", elapsed: "20 minutes ago"),
         HNLink(id: "37967751", title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", username: "laurex", comments: "3", upvotes: "11", elapsed: "20 minutes ago")
-    ])
+    ], list: "home")
 }

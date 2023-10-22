@@ -39,11 +39,18 @@ struct HNWidgetEntryView : View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Hacker News")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.orange)
-                .padding(.top, spacing.0)
-                .padding(.bottom, spacing.1)
+            HStack(alignment: .center) {
+                Text("Hacker News")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.orange)
+                    .padding(.top, spacing.0)
+                    .padding(.bottom, spacing.1)
+
+                Text(entry.list)
+                    .font(.system(size: 13, weight: .thin))
+                    .padding(.top, spacing.0)
+                    .padding(.bottom, spacing.1)
+            }
 
             VStack(alignment: .leading) {
                 if entry.links.count >= limit {
