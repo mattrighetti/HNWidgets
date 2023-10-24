@@ -1,5 +1,8 @@
 ![GitHub Logo](https://github.com/mattrighetti/HNWidgets/assets/16304728/419a47c5-94c7-486b-9c2c-1fc44c7828d3)
 
+### Download
+[App Store Link](https://apps.apple.com/us/app/hnwidgets/id6470153058)
+
 ### HN Widgets
 A set of widgets to bring the latest Hacker News links into your iPhone and iPad home screen.
 
