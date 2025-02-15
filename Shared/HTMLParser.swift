@@ -21,8 +21,8 @@ public class HTMLParser {
 
     public func getElements() -> [Datum] {
         guard
-            let titles = document.body?.xpath("//tr[@class='athing']"),
-            let sub = document.body?.xpath("//td[@class='subtext']")
+            let titles = document.body?.xpath("//tr[contains(@class, 'athing')]"),
+            let sub = document.body?.xpath("//td[contains(@class, 'subtext')]")
         else { return [] }
 
         var data = [Datum]()
