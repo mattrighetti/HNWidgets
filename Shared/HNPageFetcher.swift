@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppIntents
 
 enum FetchError: Error {
     case failure
@@ -86,5 +87,28 @@ struct HNPageFetcher {
         }
         
         return .failure(ParserError.unknown)
+    }
+}
+
+extension HNPageFetcher.HNList: AppEnum {
+    static var typeDisplayRepresentation: TypeDisplayRepresentation {
+        TypeDisplayRepresentation(name: "List")
+    }
+
+    typealias Display = [HNPageFetcher.HNList:DisplayRepresentation]
+    static var caseDisplayRepresentations: Display {
+        [
+            .active : "active",
+            .asknew : "asknew",
+            .best : "best",
+            .classic : "classic",
+            .home : "home",
+            .invited : "invited",
+            .launches: "launches",
+            .noobstories: "noobstories",
+            .pool: "pool",
+            .shownew: "shownew",
+            .whoishiring: "whoishiring"
+        ]
     }
 }
