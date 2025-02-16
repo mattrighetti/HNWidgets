@@ -1,0 +1,25 @@
+name: xpath test
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    env:
+      IOS_SIMULATOR: 'platform=iOS Simulator,name=iPhone 16'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Test on iPhone 16
+        uses: sersoft-gmbh/xcodebuild-action@v3
+        with:
+          project: HNWidgets.xcodeproj
+          scheme: HNWidgets
+          sdk: iphonesimulator
+          destination: ${{ env.IOS_SIMULATOR }}
+          action: test

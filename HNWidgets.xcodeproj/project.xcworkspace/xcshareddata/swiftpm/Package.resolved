@@ -1,4 +1,5 @@
 {
+  "originHash" : "07486e95fbe4eb118089ccdeb3aa096e379a97ca6d75b50012c47a7a91694736",
   "pins" : [
     {
       "identity" : "kanna",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
