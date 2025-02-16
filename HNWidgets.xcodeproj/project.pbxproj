@@ -34,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F399F122D6268C4003779CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F7FDD4D2AE468CC005C6C24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F7FDD542AE468CC005C6C24;
+			remoteInfo = HNWidgets;
+		};
 		5F7FDDAC2AE46E3D005C6C24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5F7FDD4D2AE468CC005C6C24 /* Project object */;
@@ -58,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F399F0E2D6268C3003779CF /* HNWidgetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNWidgetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F40535D2AE476EB00B46E36 /* HNLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNLink.swift; sourceTree = "<group>"; };
 		5F40535E2AE476EB00B46E36 /* HNPageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNPageFetcher.swift; sourceTree = "<group>"; };
 		5F40535F2AE476EB00B46E36 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
@@ -82,7 +90,18 @@
 		5FFCBF192AE480D3001994DA /* HNLinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLinkRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5F399F0F2D6268C4003779CF /* HNWidgetsTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = HNWidgetsTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		5F399F0B2D6268C3003779CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F7FDD522AE468CC005C6C24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +139,7 @@
 				5F40535B2AE476C100B46E36 /* Shared */,
 				5F7FDD572AE468CC005C6C24 /* HNWidgets */,
 				5F7FDDA42AE46E3C005C6C24 /* HNWidget */,
+				5F399F0F2D6268C4003779CF /* HNWidgetsTests */,
 				5F7FDD6C2AE469AE005C6C24 /* Frameworks */,
 				5F7FDD562AE468CC005C6C24 /* Products */,
 			);
@@ -130,6 +150,7 @@
 			children = (
 				5F7FDD552AE468CC005C6C24 /* HNWidgets.app */,
 				5F7FDDA12AE46E3C005C6C24 /* HNWidgetExtension.appex */,
+				5F399F0E2D6268C3003779CF /* HNWidgetsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,6 +204,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F399F0D2D6268C3003779CF /* HNWidgetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F399F142D6268C4003779CF /* Build configuration list for PBXNativeTarget "HNWidgetsTests" */;
+			buildPhases = (
+				5F399F0A2D6268C3003779CF /* Sources */,
+				5F399F0B2D6268C3003779CF /* Frameworks */,
+				5F399F0C2D6268C3003779CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F399F132D6268C4003779CF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5F399F0F2D6268C4003779CF /* HNWidgetsTests */,
+			);
+			name = HNWidgetsTests;
+			packageProductDependencies = (
+			);
+			productName = HNWidgetsTests;
+			productReference = 5F399F0E2D6268C3003779CF /* HNWidgetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5F7FDD542AE468CC005C6C24 /* HNWidgets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F7FDD642AE468CD005C6C24 /* Build configuration list for PBXNativeTarget "HNWidgets" */;
@@ -232,9 +276,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					5F399F0D2D6268C3003779CF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 5F7FDD542AE468CC005C6C24;
+					};
 					5F7FDD542AE468CC005C6C24 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -261,11 +309,19 @@
 			targets = (
 				5F7FDD542AE468CC005C6C24 /* HNWidgets */,
 				5F7FDDA02AE46E3C005C6C24 /* HNWidgetExtension */,
+				5F399F0D2D6268C3003779CF /* HNWidgetsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F399F0C2D6268C3003779CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F7FDD532AE468CC005C6C24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +342,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F399F0A2D6268C3003779CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F7FDD512AE468CC005C6C24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,6 +382,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F399F132D6268C4003779CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F7FDD542AE468CC005C6C24 /* HNWidgets */;
+			targetProxy = 5F399F122D6268C4003779CF /* PBXContainerItemProxy */;
+		};
 		5F7FDDAD2AE46E3D005C6C24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5F7FDDA02AE46E3C005C6C24 /* HNWidgetExtension */;
@@ -327,6 +395,47 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5F399F152D6268C4003779CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H89RFW5UZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgetsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HNWidgets.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HNWidgets";
+			};
+			name = Debug;
+		};
+		5F399F162D6268C4003779CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H89RFW5UZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgetsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HNWidgets.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HNWidgets";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5F7FDD622AE468CD005C6C24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -611,6 +720,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F399F142D6268C4003779CF /* Build configuration list for PBXNativeTarget "HNWidgetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F399F152D6268C4003779CF /* Debug */,
+				5F399F162D6268C4003779CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5F7FDD502AE468CC005C6C24 /* Build configuration list for PBXProject "HNWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
