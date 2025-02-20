@@ -16,7 +16,7 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     var reload: UpdateEveryIntent
 
     @Parameter(title: "List", default: .home)
-    var list: HNPageFetcher.HNList
+    var list: HackerNewsService.HNList
 }
 
 enum UpdateEveryIntent: Int, AppEnum {

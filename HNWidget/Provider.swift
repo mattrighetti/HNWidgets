@@ -12,33 +12,56 @@ import WidgetKit
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let list: String
-    let links: [HNLink]
+    let stories: [HNStory]
     var showError: Bool {
-        links.count == 0
+        stories.count == 0
     }
 }
 
 struct Provider: AppIntentTimelineProvider {
+    // MARK: - Placeholder
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: .now, list: "home", links: [
-            HNLink(id: "134", title: "Title", url: "", username: "mattrighetti", comments: "3234", upvotes: "22", elapsed: "2 hours ago"),
-            HNLink(id: "133", title: "Title", url: "", username: "mattrighetti", comments: "3234", upvotes: "22", elapsed: "2 hours ago")
-        ])
+        SimpleEntry(
+            date: .now,
+            list: "home",
+            stories: [
+                HNStory(id: 134, title: "Title", url: "", by: "mattrighetti", score: 22, time: 1000),
+                HNStory(id: 133, title: "Title", url: "", by: "mattrighetti", score: 22, time: 1111)
+            ]
+        )
     }
-    
+
+    // MARK: - Snapshot
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        if case .success(let links) = await HNPageFetcher.shared.getHNLinks(from: configuration.list) {
-            return SimpleEntry(date: .now, list: configuration.list.rawValue, links: links)
+        do {
+            let stories = try await HackerNewsService.shared.fetchStories(for: configuration.list, limit: 10)
+            return SimpleEntry(date: .now, list: configuration.list.rawValue, stories: stories)
+        } catch {
+            // Fallback to placeholder data in case of error
+            return SimpleEntry(date: .now, list: configuration.list.rawValue, stories: [])
         }
-        return SimpleEntry(date: .now, list: configuration.list.rawValue, links: [])
     }
-    
+
+    // MARK: - Timeline
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        if case .success(let links) = await HNPageFetcher.shared.getHNLinks(from: configuration.list) {
-            let entry = SimpleEntry(date: .now, list: configuration.list.rawValue, links: links)
+        do {
+            let stories = try await HackerNewsService.shared.fetchStories(for: configuration.list, limit: 10)
+            let entry = SimpleEntry(date: .now, list: configuration.list.rawValue, stories: stories)
+
+            // Calculate the reload date based on configuration
             let reloadDate = Calendar.current.date(byAdding: .minute, value: configuration.reload.rawValue, to: .now)!
             return Timeline(entries: [entry], policy: .after(reloadDate))
+        } catch {
+            // Fallback to a default timeline with placeholder data
+            let fallbackEntry = SimpleEntry(
+                date: .now,
+                list: configuration.list.rawValue,
+                stories: [
+                    HNStory(id: 134, title: "Failed to load stories", url: "", by: "System", score: 0, time: Date().timeIntervalSince1970)
+                ]
+            )
+            let fallbackReloadDate = Calendar.current.date(byAdding: .minute, value: 1, to: .now)! // Reload after 1 minute
+            return Timeline(entries: [fallbackEntry], policy: .after(fallbackReloadDate))
         }
-        return Timeline(entries: [], policy: .after(.now.advanced(by: 60)))
     }
 }
