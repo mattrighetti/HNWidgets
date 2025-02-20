@@ -10,7 +10,7 @@ import SwiftUI
 struct HNLinkRow: View {
     @Environment(\.openURL) var openURL
 
-    var link: HNLink
+    var link: HNStory
     var lineLimit: Int = 3
 
     var body: some View {
@@ -21,11 +21,9 @@ struct HNLinkRow: View {
                     .padding(.bottom, 0)
                     .lineLimit(lineLimit)
 
-                if link.upvotes != nil && link.username != nil && link.elapsed != nil {
-                    Text("\(link.upvotes!) points by \(link.username!) \(link.elapsed!)")
-                        .font(.system(size: 11, weight: .regular))
-                        .foregroundStyle(.secondary)
-                }
+                Text("\(link.score) points by \(link.by) \(link.elapsedTime)")
+                    .font(.system(size: 11, weight: .regular))
+                    .foregroundStyle(.secondary)
             }
             Spacer()
         }
@@ -33,5 +31,12 @@ struct HNLinkRow: View {
 }
 
 #Preview {
-    HNLinkRow(link: HNLink(id: "123", title: "Tesorio (YC S15) Is Hiring a Sr Data Engineer and Sr Back End Engineer in Latam", url: "", username: "mattrighetti", comments: "3", upvotes: "3324", elapsed: "1 hour ago"))
+    HNLinkRow(link: HNStory(
+        id: 12345678,
+        title: "Example Hacker News Story",
+        url: "https://example.com",
+        by: "swiftcoder",
+        score: 256,
+        time: 1698765432
+    ))
 }

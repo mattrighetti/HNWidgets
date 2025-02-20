@@ -56,12 +56,17 @@ struct HNWidgetEntryView : View {
                 }
 
                 VStack(alignment: .leading) {
-                    if entry.links.count >= limit {
-                        ForEach(entry.links[0..<limit]) { link in
-                            Link(destination: URL(string: "hnwidgets://openlink?link=\(link.url)")!, label: {
+                    if entry.stories.count >= limit {
+                        ForEach(entry.stories[0..<limit]) { link in
+                            if let urlString = link.url {
+                                Link(destination: URL(string: "hnwidgets://openlink?link=\(urlString)")!, label: {
+                                    HNLinkRow(link: link)
+                                        .padding(.bottom, spacing.2)
+                                })
+                            } else {
                                 HNLinkRow(link: link)
                                     .padding(.bottom, spacing.2)
-                            })
+                            }
                         }
                     } else {
                         Text("No data")
