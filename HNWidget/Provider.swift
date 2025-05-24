@@ -40,7 +40,7 @@ struct Provider: AppIntentTimelineProvider {
             return SimpleEntry(date: .now, list: configuration.list.rawValue, redirect: configuration.redirectTo, stories: stories)
         } catch {
             // Fallback to placeholder data in case of error
-            return SimpleEntry(date: .now,  list: configuration.list.rawValue, redirect: configuration.redirectTo, stories: [])
+            return SimpleEntry(date: .now, list: configuration.list.rawValue, redirect: configuration.redirectTo, stories: [])
         }
     }
 
