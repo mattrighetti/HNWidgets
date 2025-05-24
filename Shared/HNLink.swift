@@ -14,6 +14,9 @@ struct HNStory: Identifiable, Hashable, Equatable, Codable {
     let by: String
     let score: Int
     let time: TimeInterval
+    var hnUrl: String {
+        "https://news.ycombinator.com/item?id=\(id)"
+    }
 
     var elapsedTime: String {
         let currentTime = Date().timeIntervalSince1970
