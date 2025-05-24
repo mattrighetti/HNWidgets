@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5F4053602AE476EB00B46E36 /* HNLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F40535D2AE476EB00B46E36 /* HNLink.swift */; };
 		5F4053612AE476EB00B46E36 /* HNLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F40535D2AE476EB00B46E36 /* HNLink.swift */; };
-		5F40536A2AE4779C00B46E36 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 5F4053692AE4779C00B46E36 /* Kanna */; };
 		5F40536C2AE477BD00B46E36 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 5F40536B2AE477BD00B46E36 /* Kanna */; };
 		5F51C96C2D67A9E600427862 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51C96B2D67A9DD00427862 /* HackerNewsService.swift */; };
 		5F51C96D2D67A9E600427862 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51C96B2D67A9DD00427862 /* HackerNewsService.swift */; };
@@ -84,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F40536A2AE4779C00B46E36 /* Kanna in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +193,6 @@
 			);
 			name = HNWidgets;
 			packageProductDependencies = (
-				5F4053692AE4779C00B46E36 /* Kanna */,
 			);
 			productName = HNWidgets;
 			productReference = 5F7FDD552AE468CC005C6C24 /* HNWidgets.app */;
@@ -229,7 +226,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					5F7FDD542AE468CC005C6C24 = {
 						CreatedOnToolsVersion = 15.1;
@@ -357,6 +354,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -421,6 +419,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -452,7 +451,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"HNWidgets/Preview Content\"";
-				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -473,7 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -496,7 +494,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"HNWidgets/Preview Content\"";
-				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -517,7 +514,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -538,7 +535,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HNWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HNWidget;
@@ -549,7 +545,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets.HNWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -574,7 +570,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = H89RFW5UZ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HNWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HNWidget;
@@ -585,7 +580,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattrighetti.HNWidgets.HNWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,11 +641,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F4053692AE4779C00B46E36 /* Kanna */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F4053672AE4778700B46E36 /* XCRemoteSwiftPackageReference "Kanna" */;
-			productName = Kanna;
-		};
 		5F40536B2AE477BD00B46E36 /* Kanna */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F4053672AE4778700B46E36 /* XCRemoteSwiftPackageReference "Kanna" */;
