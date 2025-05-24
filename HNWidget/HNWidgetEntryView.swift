@@ -50,7 +50,8 @@ struct HNWidgetEntryView : View {
                         .padding(.bottom, spacing.1)
 
                     Text(entry.list)
-                        .font(.system(size: 13, weight: .thin))
+                        .font(.system(size: 13, weight: .light))
+                        .foregroundStyle(.gray)
                         .padding(.top, spacing.0)
                         .padding(.bottom, spacing.1)
                 }
@@ -58,14 +59,21 @@ struct HNWidgetEntryView : View {
                 VStack(alignment: .leading) {
                     if entry.stories.count >= limit {
                         ForEach(entry.stories[0..<limit]) { link in
-                            if let urlString = link.url {
-                                Link(destination: URL(string: "hnwidgets://openlink?link=\(urlString)")!, label: {
+                            if entry.redirect == .hn {
+                                Link(destination: URL(string: "hnwidgets://openlink?link=\(link.hnUrl)")!, label: {
                                     HNLinkRow(link: link)
                                         .padding(.bottom, spacing.2)
                                 })
                             } else {
-                                HNLinkRow(link: link)
-                                    .padding(.bottom, spacing.2)
+                                if let urlString = link.url {
+                                    Link(destination: URL(string: "hnwidgets://openlink?link=\(urlString)")!, label: {
+                                        HNLinkRow(link: link)
+                                            .padding(.bottom, spacing.2)
+                                    })
+                                } else {
+                                    HNLinkRow(link: link)
+                                        .padding(.bottom, spacing.2)
+                                }
                             }
                         }
                     } else {

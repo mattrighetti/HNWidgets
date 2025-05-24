@@ -17,6 +17,27 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
 
     @Parameter(title: "List", default: .home)
     var list: HackerNewsService.HNList
+
+    @Parameter(title: "Redirect", default: .story)
+    var redirectTo: Redirect
+}
+
+enum Redirect: String, CaseIterable, AppEnum {
+    case story = "story"
+    case hn = "hn"
+
+    static var allCases: [Redirect] = [.story, .hn]
+
+    static var caseDisplayRepresentations: [Redirect : DisplayRepresentation] {
+        [
+            .story : "story",
+            .hn : "hacker news",
+        ]
+    }
+
+    static var typeDisplayRepresentation: TypeDisplayRepresentation {
+        TypeDisplayRepresentation(name: "Redirect")
+    }
 }
 
 enum UpdateEveryIntent: Int, AppEnum {
