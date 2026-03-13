@@ -19,7 +19,7 @@ struct HNLinkRow: View {
                     .padding(.bottom, 0)
                     .lineLimit(lineLimit)
 
-                Text("\(link.score) points by \(link.by) \(link.elapsedTime)")
+                Text("\(link.score) points · \(link.elapsedTime)")
                     .font(.system(size: 11, weight: .regular))
                     .foregroundStyle(.secondary)
             }
