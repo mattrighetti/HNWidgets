@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HNLinkRow: View {
     var link: HNStory
-    var lineLimit: Int = 3
 
     var body: some View {
         HStack {
@@ -17,7 +16,7 @@ struct HNLinkRow: View {
                 Text(link.title)
                     .font(.system(size: 15, weight: .bold, design: .rounded))
                     .padding(.bottom, 0)
-                    .lineLimit(lineLimit)
+                    .lineLimit(3)
 
                 Text("\(link.score) points · \(link.elapsedTime)")
                     .font(.system(size: 11, weight: .regular))
