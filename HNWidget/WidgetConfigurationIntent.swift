@@ -26,12 +26,10 @@ enum Redirect: String, CaseIterable, AppEnum {
     case story = "story"
     case hn = "hn"
 
-    static var allCases: [Redirect] = [.story, .hn]
-
-    static var caseDisplayRepresentations: [Redirect : DisplayRepresentation] {
+    static var caseDisplayRepresentations: [Redirect: DisplayRepresentation] {
         [
-            .story : "story",
-            .hn : "hacker news",
+            .story: "Original Story",
+            .hn: "Hacker News Discussion",
         ]
     }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InfoView: View {
-    var appVersion: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    var appVersion: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
 
     var body: some View {
         List {

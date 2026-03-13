@@ -41,7 +41,9 @@ private func StoriesView(stories: [HNStory], redirect: Redirect) -> some View {
 @ViewBuilder
 private func LinkRowView(story: HNStory, redirect: Redirect) -> some View {
     let destinationURL = redirect == .hn ? story.hnUrl : story.url
-    if let urlString = destinationURL, let url = URL(string: "hnwidgets://openlink?link=\(urlString)") {
+    if let urlString = destinationURL,
+       let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+       let url = URL(string: "hnwidgets://openlink?link=\(encoded)") {
         Link(destination: url) {
             HNLinkRow(link: story)
                 .accessibilityLabel("Link to \(story.title)")
@@ -70,26 +72,11 @@ struct HNWidgetEntryView : View {
         }
     }
 
-    var spacing: (Double, Double, Double) {
-        switch widgetFamily {
-        case .systemMedium:
-            return (2,0.2,0.2)
-        case .systemExtraLarge, .systemLarge:
-            return (0,5,5)
-        default:
-            return (0,0,0)
-        }
-    }
-
     var body: some View {
-        if entry.showError {
-            Text("Failed to load Hacker News data")
-                .foregroundStyle(.red)
-                .accessibilityLabel("Error loading data")
-        } else if entry.stories.isEmpty {
-            Text("No stories available")
-                .foregroundStyle(.gray)
-                .accessibilityLabel("No stories available")
+        if entry.stories.isEmpty {
+            Text("Failed to load stories")
+                .foregroundStyle(.secondary)
+                .accessibilityLabel("Failed to load stories")
         } else {
             VStack(alignment: .leading, spacing: Constants.defaultPadding) {
                 HeaderView(title: "Hacker News", list: entry.list)

@@ -14,9 +14,6 @@ struct SimpleEntry: TimelineEntry {
     let list: String
     let redirect: Redirect
     let stories: [HNStory]
-    var showError: Bool {
-        stories.count == 0
-    }
 }
 
 struct Provider: AppIntentTimelineProvider {
@@ -54,17 +51,15 @@ struct Provider: AppIntentTimelineProvider {
             let reloadDate = Calendar.current.date(byAdding: .minute, value: configuration.reload.rawValue, to: .now)!
             return Timeline(entries: [entry], policy: .after(reloadDate))
         } catch {
-            // Fallback to a default timeline with placeholder data
+            // On failure show the error state and retry after 1 minute
             let fallbackEntry = SimpleEntry(
                 date: .now,
                 list: configuration.list.rawValue,
                 redirect: configuration.redirectTo,
-                stories: [
-                    HNStory(id: 134, title: "Failed to load stories", url: "", by: "System", score: 0, time: Date().timeIntervalSince1970)
-                ]
+                stories: []
             )
-            let fallbackReloadDate = Calendar.current.date(byAdding: .minute, value: 1, to: .now)! // Reload after 1 minute
-            return Timeline(entries: [fallbackEntry], policy: .after(fallbackReloadDate))
+            let retryDate = Calendar.current.date(byAdding: .minute, value: 1, to: .now)!
+            return Timeline(entries: [fallbackEntry], policy: .after(retryDate))
         }
     }
 }
