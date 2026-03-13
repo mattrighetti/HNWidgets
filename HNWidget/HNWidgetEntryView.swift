@@ -65,8 +65,10 @@ struct HNWidgetEntryView : View {
             return 0
         case .systemMedium:
             return 3
-        case .systemLarge, .systemExtraLarge:
+        case .systemLarge:
             return 7
+        case .systemExtraLarge:
+            return 10
         default:
             return 0
         }
