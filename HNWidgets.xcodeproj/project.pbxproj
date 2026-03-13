@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5F4053602AE476EB00B46E36 /* HNLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F40535D2AE476EB00B46E36 /* HNLink.swift */; };
 		5F4053612AE476EB00B46E36 /* HNLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F40535D2AE476EB00B46E36 /* HNLink.swift */; };
-		5F40536C2AE477BD00B46E36 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 5F40536B2AE477BD00B46E36 /* Kanna */; };
 		5F51C96C2D67A9E600427862 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51C96B2D67A9DD00427862 /* HackerNewsService.swift */; };
 		5F51C96D2D67A9E600427862 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51C96B2D67A9DD00427862 /* HackerNewsService.swift */; };
 		5F7FDD592AE468CC005C6C24 /* HNWidgetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FDD582AE468CC005C6C24 /* HNWidgetsApp.swift */; };
@@ -90,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F40536C2AE477BD00B46E36 /* Kanna in Frameworks */,
 				5F7FDDA32AE46E3C005C6C24 /* SwiftUI.framework in Frameworks */,
 				5F7FDDA22AE46E3C005C6C24 /* WidgetKit.framework in Frameworks */,
 			);
@@ -212,7 +210,6 @@
 			);
 			name = HNWidgetExtension;
 			packageProductDependencies = (
-				5F40536B2AE477BD00B46E36 /* Kanna */,
 			);
 			productName = HNWidgetExtension;
 			productReference = 5F7FDDA12AE46E3C005C6C24 /* HNWidgetExtension.appex */;
@@ -246,7 +243,6 @@
 			);
 			mainGroup = 5F7FDD4C2AE468CC005C6C24;
 			packageReferences = (
-				5F4053672AE4778700B46E36 /* XCRemoteSwiftPackageReference "Kanna" */,
 			);
 			productRefGroup = 5F7FDD562AE468CC005C6C24 /* Products */;
 			projectDirPath = "";
@@ -628,25 +624,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5F4053672AE4778700B46E36 /* XCRemoteSwiftPackageReference "Kanna" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "ssh://git@github.com/tid-kijyun/Kanna";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.7;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5F40536B2AE477BD00B46E36 /* Kanna */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F4053672AE4778700B46E36 /* XCRemoteSwiftPackageReference "Kanna" */;
-			productName = Kanna;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5F7FDD4D2AE468CC005C6C24 /* Project object */;
 }
