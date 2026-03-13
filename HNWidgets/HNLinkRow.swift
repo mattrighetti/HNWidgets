@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HNLinkRow: View {
-    @Environment(\.openURL) var openURL
-
     var link: HNStory
     var lineLimit: Int = 3
 

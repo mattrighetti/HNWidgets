@@ -12,7 +12,7 @@ struct SplashScreen: View {
     @State private var showInfo: Bool = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color(red: 22/255, green: 22/255, blue: 22/255)
                 VStack(alignment: .leading) {
@@ -41,19 +41,18 @@ struct SplashScreen: View {
                 }
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showInfo, content: {
             InfoView()
         })
-        .onOpenURL(perform: { url in
-            guard let urlComponents = URLComponents(string: url.absoluteString) else { return }
-            guard
-                url.scheme == "hnwidgets",
-                url.host == "openlink",
-                let link = urlComponents.queryItems?.first(where: { $0.name == "link" })?.value
+        .onOpenURL { url in
+            guard let urlComponents = URLComponents(string: url.absoluteString),
+                  url.scheme == "hnwidgets",
+                  url.host == "openlink",
+                  let link = urlComponents.queryItems?.first(where: { $0.name == "link" })?.value,
+                  let destination = URL(string: link)
             else { return }
-            openURL(URL(string: link)!)
-        })
+            openURL(destination)
+        }
     }
 }
 

@@ -25,14 +25,12 @@ actor HackerNewsService {
         case shownew = "showstories"
         case asknew = "askstories"
 
-        static var allCases: [HNList] = [.asknew, .best, .home, .shownew]
-
-        static var caseDisplayRepresentations: [HackerNewsService.HNList : DisplayRepresentation] {
+        static var caseDisplayRepresentations: [HackerNewsService.HNList: DisplayRepresentation] {
             [
-                .asknew : "asknew",
-                .best : "best",
-                .home : "home",
-                .shownew: "shownew",
+                .home: "Top Stories",
+                .best: "Best Stories",
+                .shownew: "Show HN",
+                .asknew: "Ask HN",
             ]
         }
 
@@ -63,23 +61,24 @@ actor HackerNewsService {
         return try JSONDecoder().decode(HNStory.self, from: data)
     }
 
-    // Fetches stories for a given category with a limit
+    // Fetches stories for a given category with a limit, preserving HN's ranked order
     func fetchStories(for category: HNList, limit: Int) async throws -> [HNStory] {
-        let storyIDs = try await fetchStoryIDs(for: category)
-        return try await withThrowingTaskGroup(of: HNStory.self) { group in
-            var stories = [HNStory]()
+        let storyIDs = Array(try await fetchStoryIDs(for: category).prefix(limit))
+        return try await withThrowingTaskGroup(of: (Int, HNStory).self) { group in
+            var storiesByID = [Int: HNStory]()
+            storiesByID.reserveCapacity(storyIDs.count)
 
-            for storyID in storyIDs.prefix(limit) {
+            for (index, storyID) in storyIDs.enumerated() {
                 group.addTask {
-                    return try await self.fetchStoryDetails(id: storyID)
+                    return (index, try await self.fetchStoryDetails(id: storyID))
                 }
             }
 
-            for try await story in group {
-                stories.append(story)
+            for try await (index, story) in group {
+                storiesByID[index] = story
             }
 
-            return stories
+            return storyIDs.indices.compactMap { storiesByID[$0] }
         }
     }
 }
