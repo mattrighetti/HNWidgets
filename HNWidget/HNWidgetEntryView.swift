@@ -61,8 +61,6 @@ struct HNWidgetEntryView : View {
 
     var limit: Int {
         switch widgetFamily {
-        case .systemSmall:
-            return 0
         case .systemMedium:
             return 3
         case .systemLarge:
