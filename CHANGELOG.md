@@ -1,6 +1,23 @@
 # Changelog
 
 - - -
+## 1.7.0 - 2026-10-22
+#### Features
+- modernize HN widgets and add story navigation - (868ffc4) - Mattia Righetti
+- show 10 stories on systemExtraLarge widget - (fb6263b) - Mattia Righetti
+#### Bug Fixes
+- (**widgets**) route story taps through app - (fe9f45f) - Mattia Righetti
+#### Build system
+- (**release**) configure Cog versioning - (1f47c83) - Mattia Righetti
+#### Refactoring
+- remove unused lineLimit param and dead systemSmall case - (005facc) - Mattia Righetti
+- remove username from story row subtitle - (2712485) - Mattia Righetti
+- modernise code and fix correctness issues - (366a111) - Mattia Righetti
+#### Miscellaneous Chores
+- remove unused Kanna SSH dependency - (82672e0) - Mattia Righetti
+
+- - -
+
 
 #### Bug Fixes
 - make ipad full screen & force darkmode - (845ecb4) - Mattia Righetti
