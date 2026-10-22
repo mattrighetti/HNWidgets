@@ -9,20 +9,25 @@ import SwiftUI
 
 struct HNLinkRow: View {
     var link: HNStory
+    var titleLineLimit = 3
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(link.title)
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                    .padding(.bottom, 0)
-                    .lineLimit(3)
+        VStack(alignment: .leading, spacing: 3) {
+            Text(link.title)
+                .font(.system(size: 15, weight: .bold, design: .rounded))
+                .padding(.bottom, 0)
+                .lineLimit(titleLineLimit)
 
-                Text("\(link.score) points · \(link.elapsedTime)")
-                    .font(.system(size: 11, weight: .regular))
-                    .foregroundStyle(.secondary)
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                Image(systemName: "star.fill")
+                    .font(.system(size: 9, weight: .semibold))
+
+                Text("\(link.score)")
+
+                Text("· \(link.elapsedTime)")
             }
-            Spacer()
+            .font(.system(size: 11, weight: .regular))
+            .foregroundStyle(.secondary)
         }
     }
 }

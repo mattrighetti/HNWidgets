@@ -22,29 +22,50 @@ struct HNWidget: Widget {
                     .background()
             }
         }
-        .supportedFamilies([.systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies([.systemMedium, .systemLarge, .systemExtraLarge, .accessoryRectangular])
         .configurationDisplayName("HN Widgets")
         .description("View latest Hacker News stories")
     }
 }
 
+private let previewEntry = SimpleEntry(
+    date: .now,
+    list: "Top Stories",
+    feedID: "topstories",
+    redirect: .story,
+    stories: (1...30).map { number in
+        HNStory(
+            id: 37967000 + number,
+            title: "Example Hacker News story number \(number)",
+            url: "https://example.com/story-\(number)",
+            by: "swiftcoder",
+            score: 23 + number,
+            time: Date().timeIntervalSince1970 - Double(number * 60)
+        )
+    },
+    selectedStoryPage: 0
+)
+
 #Preview(as: .systemMedium) {
     HNWidget()
 } timeline: {
-    SimpleEntry(date: .now, list: "home", redirect: .story, stories: [
-        HNStory(id: 37967936, title: "The Worlds First FPGA N64", url: "http://www.ultrafp64.com/", by: "AndrewDucker", score: 23, time: Date().timeIntervalSince1970 - 27 * 60),
-        HNStory(id: 37967126, title: "What Every Developer Should Know About GPU Computing", url: "https://codeconfessions.substack.com/p/gpu-computing", by: "Anon84", score: 80, time: Date().timeIntervalSince1970 - 60 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60),
-        HNStory(id: 37967936, title: "The Worlds First FPGA N64", url: "http://www.ultrafp64.com/", by: "AndrewDucker", score: 23, time: Date().timeIntervalSince1970 - 27 * 60),
-        HNStory(id: 37967126, title: "What Every Developer Should Know About GPU Computing", url: "https://codeconfessions.substack.com/p/gpu-computing", by: "Anon84", score: 80, time: Date().timeIntervalSince1970 - 60 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60),
-        HNStory(id: 37967936, title: "The Worlds First FPGA N64", url: "http://www.ultrafp64.com/", by: "AndrewDucker", score: 23, time: Date().timeIntervalSince1970 - 27 * 60),
-        HNStory(id: 37967126, title: "What Every Developer Should Know About GPU Computing", url: "https://codeconfessions.substack.com/p/gpu-computing", by: "Anon84", score: 80, time: Date().timeIntervalSince1970 - 60 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60),
-        HNStory(id: 37967936, title: "The Worlds First FPGA N64", url: "http://www.ultrafp64.com/", by: "AndrewDucker", score: 23, time: Date().timeIntervalSince1970 - 27 * 60),
-        HNStory(id: 37967126, title: "What Every Developer Should Know About GPU Computing", url: "https://codeconfessions.substack.com/p/gpu-computing", by: "Anon84", score: 80, time: Date().timeIntervalSince1970 - 60 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60),
-        HNStory(id: 37967751, title: "The exam that broke society", url: "https://aeon.co/essays/why-chinese-minds-still-bear-the-long-shadow-of-keju", by: "laurex", score: 11, time: Date().timeIntervalSince1970 - 20 * 60)
-    ])
+    previewEntry
+}
+
+#Preview(as: .systemLarge) {
+    HNWidget()
+} timeline: {
+    previewEntry
+}
+
+#Preview(as: .systemExtraLarge) {
+    HNWidget()
+} timeline: {
+    previewEntry
+}
+
+#Preview(as: .accessoryRectangular) {
+    HNWidget()
+} timeline: {
+    previewEntry
 }
