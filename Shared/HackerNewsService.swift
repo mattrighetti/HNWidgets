@@ -25,6 +25,15 @@ actor HackerNewsService {
         case shownew = "showstories"
         case asknew = "askstories"
 
+        var displayName: String {
+            switch self {
+            case .home: "Top Stories"
+            case .best: "Best Stories"
+            case .shownew: "Show HN"
+            case .asknew: "Ask HN"
+            }
+        }
+
         static var caseDisplayRepresentations: [HackerNewsService.HNList: DisplayRepresentation] {
             [
                 .home: "Top Stories",
@@ -40,7 +49,9 @@ actor HackerNewsService {
     }
 
     private func fetchStoryIDs(for category: HNList) async throws -> [Int] {
-        let url = URL(string: "\(baseURL)/\(category.rawValue).json")!
+        guard let url = URL(string: "\(baseURL)/\(category.rawValue).json") else {
+            throw HNError.invalidURL
+        }
         let (data, response) = try await URLSession.shared.data(from: url)
 
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
@@ -51,7 +62,9 @@ actor HackerNewsService {
     }
 
     private func fetchStoryDetails(id: Int) async throws -> HNStory {
-        let url = URL(string: "\(baseURL)/item/\(id).json")!
+        guard let url = URL(string: "\(baseURL)/item/\(id).json") else {
+            throw HNError.invalidURL
+        }
         let (data, response) = try await URLSession.shared.data(from: url)
 
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
@@ -61,8 +74,9 @@ actor HackerNewsService {
         return try JSONDecoder().decode(HNStory.self, from: data)
     }
 
-    // Fetches stories for a given category with a limit, preserving HN's ranked order
+    /// Fetches stories concurrently while preserving Hacker News' ranked order.
     func fetchStories(for category: HNList, limit: Int) async throws -> [HNStory] {
+        guard limit > 0 else { return [] }
         let storyIDs = Array(try await fetchStoryIDs(for: category).prefix(limit))
         return try await withThrowingTaskGroup(of: (Int, HNStory).self) { group in
             var storiesByID = [Int: HNStory]()

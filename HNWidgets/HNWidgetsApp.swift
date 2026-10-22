@@ -11,7 +11,7 @@ import SwiftUI
 struct HNWidgetsApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+            StoryLinkHost()
                 .preferredColorScheme(.dark)
         }
     }

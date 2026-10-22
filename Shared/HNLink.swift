@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HNStory: Identifiable, Hashable, Equatable, Codable {
+struct HNStory: Identifiable, Hashable, Codable, Sendable {
     let id: Int
     let title: String
     let url: String?
@@ -19,8 +19,6 @@ struct HNStory: Identifiable, Hashable, Equatable, Codable {
     }
 
     var elapsedTime: String {
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
-        return formatter.localizedString(for: Date(timeIntervalSince1970: time), relativeTo: .now)
+        Date(timeIntervalSince1970: time).formatted(.relative(presentation: .named))
     }
 }
