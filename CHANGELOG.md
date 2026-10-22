@@ -1,3 +1,7 @@
+# Changelog
+
+- - -
+
 #### Bug Fixes
 - make ipad full screen & force darkmode - (845ecb4) - Mattia Righetti
 - removed some lists and misc refactoring - (40d7e4e) - Mattia Righetti
