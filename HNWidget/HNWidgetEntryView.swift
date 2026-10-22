@@ -77,10 +77,18 @@ private func widgetDestinationURL(for destination: String?) -> URL? {
           let components = URLComponents(string: destination),
           let scheme = components.scheme?.lowercased(),
           ["http", "https"].contains(scheme),
-          components.host != nil else {
+          let host = components.host, !host.isEmpty,
+          let articleURL = components.url else {
         return nil
     }
-    return components.url
+
+    // Route widget taps through the app so its opening preference and redirect
+    // screen can decide whether to present Safari or hand off to the browser.
+    var appComponents = URLComponents()
+    appComponents.scheme = "hnwidgets"
+    appComponents.host = "openlink"
+    appComponents.queryItems = [URLQueryItem(name: "link", value: articleURL.absoluteString)]
+    return appComponents.url
 }
 
 @ViewBuilder
